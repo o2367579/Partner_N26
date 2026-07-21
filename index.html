@@ -339,7 +339,7 @@ h1 {
   2) metaPixelId — только числовой ID пикселя.
   3) primaryEvent — событие, под которое оптимизируется реклама.
      Поддерживаемые стандартные события:
-     Lead, Contact, Subscribe, CompleteRegistration, ViewContent.
+     Lead, Contact, Subscribe, CompleteRegistration, SubmitApplication, ViewContent.
 
   Не размещайте здесь access token от Meta Conversion API.
   GitHub Pages — публичный статический хостинг, токен увидит любой посетитель.
@@ -393,7 +393,7 @@ window.LANDING_CONFIG = {
     "Contact",
     "Subscribe",
     "CompleteRegistration",
-    "ViewContent"
+    "ViewContent",
     "SubmitApplication"
   ]);
 
@@ -525,8 +525,8 @@ window.LANDING_CONFIG = {
       return;
     }
 
-    const primaryEvent = String(config.primaryEvent || "Contact");
-    trackEvent(ALLOWED_EVENTS.has(primaryEvent) ? primaryEvent : "Contact");
+    const primaryEvent = String(config.primaryEvent || "SubmitApplication");
+    trackEvent(ALLOWED_EVENTS.has(primaryEvent) ? primaryEvent : "SubmitApplication");
 
     if (Array.isArray(config.additionalEvents)) {
       config.additionalEvents
